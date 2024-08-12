@@ -2,6 +2,7 @@ import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 import { BiLogoGmail } from "react-icons/bi";
 import { Button } from "@/components/ui/button";
 import { googleIcon } from "../assets/images";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
 	return (
@@ -26,9 +27,11 @@ const Signup = () => {
 						<img src={googleIcon} alt="Google" className="w-5 h-5 mr-2" />
 						Sign Up with Google
 					</Button>
-					<Button className="px-[35px] py-[13px] flex items-center rounded-[4px] w-[195px] h-[48px]  justify-center mx-auto  bg-gradient-to-r from-[#4B63DD] to-[#0524bfee] text-white text-sm font-semibold">
-						Create an Account
-					</Button>
+					<Link to="/">
+						<Button className="px-[35px] py-[13px] flex items-center rounded-[4px] w-[195px] h-[48px]  justify-center mx-auto  bg-gradient-to-r from-[#4B63DD] to-[#0524bfee] text-white text-sm font-semibold">
+							Create an Account
+						</Button>
+					</Link>
 					<div className="mt-4 text-center text-base  text-[#909296]">
 						<p>
 							Already have an account?
@@ -40,7 +43,7 @@ const Signup = () => {
 					</div>
 				</CardContent>
 			</Card>
-			<h2>bye</h2>
+			<h2></h2>
 		</div>
 	);
 };
