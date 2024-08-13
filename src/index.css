@@ -73,3 +73,12 @@
 		@apply bg-background text-foreground;
 	}
 }
+
+.active {
+	background-color: hsl(0 0% 96.1%);
+	color: black;
+}
+
+.active:hover {
+	color: black !important;
+}

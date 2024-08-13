@@ -6,27 +6,32 @@ import Header from "./components/elements/Header";
 
 const Signup = React.lazy(() => import("./pages/Signup"));
 const Dashboard = React.lazy(() => import("./pages/Dashboard"));
+const Home = React.lazy(() => import("./pages/Home"));
+const Inbox = React.lazy(() => import("./pages/Inbox"));
 
 function App() {
 	const location = useLocation();
 
 	// List of routes where the sidebar should not be displayed
-	const noSidebarRoutes = ["/login"];
+	const noSidebarRoutes = ["/signup"];
 
 	const isNoSidebarRoute = noSidebarRoutes.includes(location.pathname);
 
 	return (
 		<div className="flex min-h-screen w-full flex-col bg-muted/40">
 			{!isNoSidebarRoute && <Sidebar />}
-			<div className="flex flex-col sm:pb-4 sm:pl-14">
+			<div className="flex flex-col  sm:pl-14">
 				<Header />
 				<Suspense fallback={<Loader />}>
 					<Routes>
-						<Route path="/login" element={<Signup />} />
-						<Route path="/" element={<Dashboard />} />
-						<Route path="/inbox" element={<Signup />} />
-						<Route path="/mail" element={<Signup />} />
-						<Route path="/new/mail" element={<Signup />} />
+						<Route path="/signup" element={<Signup />} />
+						<Route path="/" element={<Home />} />
+						<Route path="/dashboard" element={<Dashboard />} />
+						<Route path="/mail" element={<Home />} />
+						<Route path="/compose" element={<Home />} />
+						<Route path="/list" element={<Home />} />
+						<Route path="/inbox" element={<Inbox />} />
+						<Route path="/history" element={<Home />} />
 					</Routes>
 				</Suspense>
 			</div>
