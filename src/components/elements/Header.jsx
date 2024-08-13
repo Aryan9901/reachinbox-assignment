@@ -10,10 +10,11 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { ThemeToggle } from "../utils/ThemeToggle";
 
 const Header = () => {
 	return (
-		<header className="sticky top-0 z-30 py-2 flex h-14 items-center gap-4 border-b  px-4 sm:static sm:h-auto  sm:px-6 bg-[#1F1F1F] border-2 border-[#343A40]">
+		<header className="sticky text-black dark:text-white top-0 z-30 py-2 flex h-14 items-center gap-4 border-b  px-4 sm:static sm:h-auto  sm:px-6 bg-white dark:bg-[#1F1F1F] dark:border-2 dark:border-[#343A40]">
 			<Sheet>
 				<SheetTrigger asChild>
 					<Button size="icon" variant="outline" className="sm:hidden">
@@ -53,11 +54,13 @@ const Header = () => {
 					</nav>
 				</SheetContent>
 			</Sheet>
-			<h1 className="text-base text-white font-bold">Onebox</h1>
-			<div className="relative ml-auto flex-1 md:grow-0"></div>
+			<h1 className="text-base  font-bold">Onebox</h1>
+			<div className="relative ml-auto flex-1 md:grow-0">
+				<ThemeToggle />
+			</div>
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
-					<Button variant="link" className="overflow-hidden flex items-center gap-2 text-white">
+					<Button variant="link" className="overflow-hidden flex items-center gap-2">
 						<h5 className="">Trim&apos;s workspace</h5>
 						<ChevronDown className="mt-1" />
 					</Button>

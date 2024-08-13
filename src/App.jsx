@@ -18,7 +18,7 @@ function App() {
 	return (
 		<div className="flex min-h-screen w-full flex-col bg-muted/40">
 			{!isNoSidebarRoute && <Sidebar />}
-			<div className="flex flex-col sm:gap-4 sm:pb-4 sm:pl-14">
+			<div className="flex flex-col sm:pb-4 sm:pl-14">
 				<Header />
 				<Suspense fallback={<Loader />}>
 					<Routes>

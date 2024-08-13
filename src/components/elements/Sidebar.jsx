@@ -4,7 +4,7 @@ import { Home, LineChart, Package, Package2, Settings, ShoppingCart, Users2 } fr
 
 const Sidebar = () => {
 	return (
-		<aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex">
+		<aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-white dark:bg-black sm:flex">
 			<TooltipProvider>
 				<nav className="flex flex-col items-center gap-4 px-2 sm:py-5">
 					<Link
