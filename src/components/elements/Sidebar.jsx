@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Link, NavLink } from "react-router-dom";
 import { TooltipProvider, Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { ChartNoAxesColumn, House, Inbox, Send, UserSearch } from "lucide-react";
@@ -5,9 +6,11 @@ import { TfiMenuAlt } from "react-icons/tfi";
 import { IoMdMail } from "react-icons/io";
 import { BiLogoGmail } from "react-icons/bi";
 
-const Sidebar = () => {
+const Sidebar = ({ isLoginPage = false }) => {
 	return (
-		<aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-white dark:bg-black sm:flex">
+		<aside
+			className={`fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-white dark:bg-black sm:flex ${isLoginPage ? "hidden" : "block"}`}
+		>
 			<TooltipProvider>
 				<nav className="flex flex-col items-center gap-4 px-2 sm:py-5">
 					<Link

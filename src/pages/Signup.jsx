@@ -2,9 +2,12 @@ import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 import { BiLogoGmail } from "react-icons/bi";
 import { Button } from "@/components/ui/button";
 import { googleIcon } from "../assets/images";
+import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
 
 const Signup = () => {
+	const { loginWithRedirect } = useAuth0();
+
 	return (
 		<div className="flex flex-col items-center justify-between h-screen bg-[#121212]">
 			<div className="text-white w-fit border-[1.3px] p-0 m-0 border-[#909296] flex items-center">
@@ -21,6 +24,7 @@ const Signup = () => {
 				</CardHeader>
 				<CardContent>
 					<Button
+						onClick={() => loginWithRedirect()}
 						variant="primary"
 						className="w-full mt-2 mb-16 text-[#707172] flex items-center justify-center border-[1px] border-[#707172]"
 					>

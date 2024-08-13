@@ -19,9 +19,9 @@ function App() {
 
 	return (
 		<div className="flex min-h-screen w-full flex-col bg-muted/40">
-			{!isNoSidebarRoute && <Sidebar />}
-			<div className="flex flex-col  sm:pl-14">
-				<Header />
+			{!isNoSidebarRoute && <Sidebar isLoginPage={!isNoSidebarRoute} />}
+			<div className={`flex flex-col min-h-screen ${isNoSidebarRoute ? "" : "sm:pl-14"}`}>
+				{!isNoSidebarRoute && <Header />}
 				<Suspense fallback={<Loader />}>
 					<Routes>
 						<Route path="/signup" element={<Signup />} />

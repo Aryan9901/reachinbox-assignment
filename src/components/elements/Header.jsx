@@ -9,10 +9,23 @@ import {
 	DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ThemeToggle } from "../utils/ThemeToggle";
+import { useAuth0 } from "@auth0/auth0-react";
+import Loader from "./Loader";
 
 const Header = () => {
+	const { logout, user, isAuthenticated, isLoading } = useAuth0();
+	const navigate = useNavigate();
+
+	if (isLoading) {
+		return <Loader />;
+	}
+
+	if (!isAuthenticated) {
+		navigate("/signup");
+	}
+
 	return (
 		<header className="sticky text-black dark:text-white top-0 z-30 py-2 flex h-14 items-center gap-4 border-b  px-4 sm:static sm:h-auto  sm:px-6 bg-white dark:bg-[#1F1F1F] dark:border-2 dark:border-[#343A40]">
 			<Sheet>
@@ -61,7 +74,7 @@ const Header = () => {
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
 					<Button variant="link" className="overflow-hidden flex items-center gap-2">
-						<h5 className="">Trim&apos;s workspace</h5>
+						<h5 className="">{user?.name || ""}&apos;s Workspace</h5>
 						<ChevronDown className="mt-1" />
 					</Button>
 				</DropdownMenuTrigger>
@@ -71,7 +84,7 @@ const Header = () => {
 					<DropdownMenuItem>Settings</DropdownMenuItem>
 					<DropdownMenuItem>Support</DropdownMenuItem>
 					<DropdownMenuSeparator />
-					<DropdownMenuItem>Logout</DropdownMenuItem>
+					<DropdownMenuItem onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Logout</DropdownMenuItem>
 				</DropdownMenuContent>
 			</DropdownMenu>
 		</header>
